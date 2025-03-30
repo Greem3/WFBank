@@ -12,32 +12,51 @@ namespace Bank
     {
         public static void Center(Control mainControl, Control childControl)
         {
-            mainControl.Resize += (sender, e) =>
-            {
-                childControl.Location = new Point(mainControl.Width / 2 - childControl.Width / 2, mainControl.Height / 2 - childControl.Height / 2);
-            };
-
-            childControl.Location = new Point(mainControl.Width / 2 - childControl.Width / 2, mainControl.Height / 2 - childControl.Height / 2);
+            Responsive.Center(mainControl, childControl, 0, 0);
         }
 
         public static void Center(Control mainControl, Control childControl, int marginX = 0, int marginY = 0)
         {
             mainControl.Resize += (sender, e) =>
             {
-                childControl.Location = new Point(mainControl.Width / 2 - childControl.Width / 2 - marginX, mainControl.Height / 2 - childControl.Height / 2 + marginY);
+                childControl.Location = new Point(mainControl.Width / 2 - childControl.Width / 2 + marginX, mainControl.Height / 2 - childControl.Height / 2 + marginY);
             };
 
-            childControl.Location = new Point(mainControl.Width / 2 - childControl.Width / 2 - marginX, mainControl.Height / 2 - childControl.Height / 2 + marginY);
+            childControl.Location = new Point(mainControl.Width / 2 - childControl.Width / 2 + marginX, mainControl.Height / 2 - childControl.Height / 2 + marginY);
+        }
+
+        public static void MiddleX(Control mainControl, Control childControl)
+        {
+            Responsive.MiddleX(mainControl, childControl, 0);
+        }
+
+        public static void MiddleX(Control mainControl, Control childControl, int margin)
+        {
+            mainControl.Resize += (sender, e) =>
+            {
+                childControl.Location = new Point(mainControl.Width / 2 - childControl.Width / 2 + margin, childControl.Location.Y);
+            };
+
+            childControl.Location = new Point(mainControl.Width / 2 - childControl.Width / 2 + margin, childControl.Location.Y);
+        }
+
+        public static void MiddleY(Control mainControl, Control childControl)
+        {
+            Responsive.MiddleY(mainControl, childControl, 0);
+        }
+
+        public static void MiddleY(Control mainControl, Control childControl, int margin)
+        {
+            mainControl.Resize += (sender, e) =>
+            {
+                childControl.Location = new Point(childControl.Location.X, mainControl.Height / 2 - childControl.Height / 2 + margin);
+            };
+            childControl.Location = new Point(childControl.Location.X, mainControl.Height / 2 - childControl.Height / 2 + margin);
         }
 
         public static void Left(Control mainControl, Control childControl)
         {
-            mainControl.Resize += (sender, e) =>
-            {
-                childControl.Location = new Point(0, childControl.Location.Y);
-            };
-
-            childControl.Location = new Point(0, childControl.Location.Y);
+            Responsive.Left(mainControl, childControl, 0);
         }
 
         public static void Left(Control mainControl, Control childControl, int margin)
@@ -52,12 +71,7 @@ namespace Bank
 
         public static void Right(Control mainControl, Control childControl)
         {
-            mainControl.Resize += (sender, e) =>
-            {
-                childControl.Location = new Point(mainControl.Width - childControl.Width, childControl.Location.Y);
-            };
-
-            childControl.Location = new Point(mainControl.Width - childControl.Width, childControl.Location.Y);
+            Responsive.Right(mainControl, childControl, 0);
         }
 
         public static void Right(Control mainControl, Control childControl, int margin)
@@ -72,12 +86,7 @@ namespace Bank
 
         public static void Top(Control mainControl, Control childControl)
         {
-            mainControl.Resize += (sender, e) =>
-            {
-                childControl.Location = new Point(childControl.Location.X, 0);
-            };
-
-            childControl.Location = new Point(childControl.Location.X, 0);
+            Responsive.Top(mainControl, childControl, 0);
         }
 
         public static void Top(Control mainControl, Control childControl, int margin)
@@ -92,12 +101,7 @@ namespace Bank
 
         public static void Bottom(Control mainControl, Control childControl)
         {
-            mainControl.Resize += (sender, e) =>
-            {
-                childControl.Location = new Point(childControl.Location.X, mainControl.Height - childControl.Height);
-            };
-
-            childControl.Location = new Point(childControl.Location.X, mainControl.Height - childControl.Height);
+            Responsive.Bottom(mainControl, childControl, 0);
         }
 
         public static void Bottom(Control mainControl, Control childControl, int margin)

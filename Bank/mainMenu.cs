@@ -10,15 +10,11 @@ using System.Windows.Forms;
 
 namespace Bank
 {
-    public partial class Form1: Form
+    public partial class mainMenu: Form
     {
-        public Form1()
+        public mainMenu()
         {
             InitializeComponent();
-            Responsive.Center(this, panel1);
-            Responsive.Center(panel1, textBox1);
-            Responsive.Center(panel1, pictureBox1);
-            Responsive.Top(panel1, pictureBox1, 0);
         }
     }
 }

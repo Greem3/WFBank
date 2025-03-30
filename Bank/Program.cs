@@ -16,7 +16,13 @@ namespace Bank
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            if (Context.actualUser.Acceded)
+            {
+                MessageBox.Show("Ya esta accedido");
+            }
+
+            Application.Run(new LoginSesion());
         }
     }
 }
