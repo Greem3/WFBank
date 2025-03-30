@@ -10,12 +10,15 @@ using System.Windows.Forms;
 
 namespace Bank
 {
-    public partial class LoginSesion: Form
+    public partial class LogIn: Form
     {
-        public LoginSesion()
+        public LogIn()
         {
             InitializeComponent();
+            
             Responsive.Center(mainPanel);
+
+            Fitsizer.AdjustHeightObject(buttonsPanel, 10);
 
             Aligner.ItemsCenter(
                 mainPanel,
@@ -27,13 +30,20 @@ namespace Bank
                     borderlessGroupBox2,
                     buttonsPanel
                 },
-                20,
+                0,
                 25
             );
 
+            Fitsizer.AdjustObject(mainPanel);
+
             Aligner.BottomCenter(borderlessGroupBox2, forgotPassword, 5);
-            Responsive.Left(logIn, 30);
-            Responsive.Right(signIn, 30);
+            Responsive.Left(logInButton, 30);
+            Responsive.Right(signInButton, 30);
+        }
+
+        private void signInButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Bank
 {
-    public partial class MainMenu: Form
+    public partial class SignIn: Form
     {
-        public MainMenu()
+        public SignIn()
         {
             InitializeComponent();
-            Filler.Fill(splitContainer1);
-
-            Responsive.LeftTop(profileImg);
-
-            Filler.FillX(sections);
-
-
-            Fitsizer.AdjustInside(sections);
-
-            Aligner.ItemsLeft(sections, 30);
         }
     }
 }

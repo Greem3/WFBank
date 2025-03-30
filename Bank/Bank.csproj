@@ -51,11 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoginSesion.cs">
+    <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginSesion.Designer.cs">
-      <DependentUpon>LoginSesion.cs</DependentUpon>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
@@ -65,6 +65,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignIn.Designer.cs">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Decorators\Aligner.cs" />
     <Compile Include="src\Context.cs" />
     <Compile Include="src\CustomObjects\BorderlessGroupBox.cs">
@@ -81,8 +87,8 @@
     <Compile Include="src\JsonFiles\FormatterConfig.cs" />
     <Compile Include="src\Loader.cs" />
     <Compile Include="src\Decorators\Responsive.cs" />
-    <EmbeddedResource Include="LoginSesion.resx">
-      <DependentUpon>LoginSesion.cs</DependentUpon>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

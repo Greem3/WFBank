@@ -23,7 +23,7 @@ namespace Bank
                 return;
             }
 
-            Application.Run(new LoginSesion());
+            Application.Run(new LogIn());
         }
     }
 }

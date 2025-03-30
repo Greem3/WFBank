@@ -2,7 +2,7 @@
 
 namespace Bank
 {
-    partial class LoginSesion
+    partial class LogIn
     {
         /// <summary>
         /// Required designer variable.
@@ -30,23 +30,23 @@ namespace Bank
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginSesion));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.forgotPassword = new System.Windows.Forms.LinkLabel();
             this.buttonsPanel = new System.Windows.Forms.Panel();
-            this.logIn = new System.Windows.Forms.Button();
-            this.signIn = new System.Windows.Forms.Button();
+            this.logInButton = new System.Windows.Forms.Button();
+            this.signInButton = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.borderlessGroupBox1 = new Bank.BorderlessGroupBox();
             this.mail = new System.Windows.Forms.TextBox();
             this.borderlessGroupBox2 = new Bank.BorderlessGroupBox();
             this.password = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.forgotPassword = new System.Windows.Forms.LinkLabel();
             this.mainPanel.SuspendLayout();
             this.buttonsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.borderlessGroupBox1.SuspendLayout();
             this.borderlessGroupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -62,32 +62,44 @@ namespace Bank
             this.mainPanel.Size = new System.Drawing.Size(543, 663);
             this.mainPanel.TabIndex = 0;
             // 
+            // forgotPassword
+            // 
+            this.forgotPassword.AutoSize = true;
+            this.forgotPassword.CausesValidation = false;
+            this.forgotPassword.Location = new System.Drawing.Point(139, 464);
+            this.forgotPassword.Name = "forgotPassword";
+            this.forgotPassword.Size = new System.Drawing.Size(133, 16);
+            this.forgotPassword.TabIndex = 9;
+            this.forgotPassword.TabStop = true;
+            this.forgotPassword.Text = "Olvide mi contraseña";
+            // 
             // buttonsPanel
             // 
-            this.buttonsPanel.Controls.Add(this.logIn);
-            this.buttonsPanel.Controls.Add(this.signIn);
+            this.buttonsPanel.Controls.Add(this.logInButton);
+            this.buttonsPanel.Controls.Add(this.signInButton);
             this.buttonsPanel.Location = new System.Drawing.Point(38, 536);
             this.buttonsPanel.Name = "buttonsPanel";
             this.buttonsPanel.Size = new System.Drawing.Size(464, 89);
             this.buttonsPanel.TabIndex = 8;
             // 
-            // logIn
+            // logInButton
             // 
-            this.logIn.Location = new System.Drawing.Point(17, 23);
-            this.logIn.Name = "logIn";
-            this.logIn.Size = new System.Drawing.Size(133, 46);
-            this.logIn.TabIndex = 6;
-            this.logIn.Text = "Iniciar Sesión";
-            this.logIn.UseVisualStyleBackColor = true;
+            this.logInButton.Location = new System.Drawing.Point(17, 23);
+            this.logInButton.Name = "logInButton";
+            this.logInButton.Size = new System.Drawing.Size(133, 46);
+            this.logInButton.TabIndex = 6;
+            this.logInButton.Text = "Iniciar Sesión";
+            this.logInButton.UseVisualStyleBackColor = true;
             // 
-            // signIn
+            // signInButton
             // 
-            this.signIn.Location = new System.Drawing.Point(315, 23);
-            this.signIn.Name = "signIn";
-            this.signIn.Size = new System.Drawing.Size(133, 46);
-            this.signIn.TabIndex = 7;
-            this.signIn.Text = "Registrarse";
-            this.signIn.UseVisualStyleBackColor = true;
+            this.signInButton.Location = new System.Drawing.Point(315, 23);
+            this.signInButton.Name = "signInButton";
+            this.signInButton.Size = new System.Drawing.Size(133, 46);
+            this.signInButton.TabIndex = 7;
+            this.signInButton.Text = "Registrarse";
+            this.signInButton.UseVisualStyleBackColor = true;
+            this.signInButton.Click += new System.EventHandler(this.signInButton_Click);
             // 
             // title
             // 
@@ -98,6 +110,16 @@ namespace Bank
             this.title.Size = new System.Drawing.Size(310, 54);
             this.title.TabIndex = 5;
             this.title.Text = "Iniciar sesión";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(177, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(177, 150);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // borderlessGroupBox1
             // 
@@ -133,43 +155,22 @@ namespace Bank
             this.password.Size = new System.Drawing.Size(263, 22);
             this.password.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(177, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(177, 150);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // forgotPassword
-            // 
-            this.forgotPassword.AutoSize = true;
-            this.forgotPassword.CausesValidation = false;
-            this.forgotPassword.Location = new System.Drawing.Point(139, 464);
-            this.forgotPassword.Name = "forgotPassword";
-            this.forgotPassword.Size = new System.Drawing.Size(133, 16);
-            this.forgotPassword.TabIndex = 9;
-            this.forgotPassword.TabStop = true;
-            this.forgotPassword.Text = "Olvide mi contraseña";
-            // 
-            // LoginSesion
+            // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 808);
             this.Controls.Add(this.mainPanel);
-            this.Name = "LoginSesion";
-            this.Text = "Form1";
+            this.Name = "LogIn";
+            this.Text = "Iniciar sesión";
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.buttonsPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.borderlessGroupBox1.ResumeLayout(false);
             this.borderlessGroupBox1.PerformLayout();
             this.borderlessGroupBox2.ResumeLayout(false);
             this.borderlessGroupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,8 +184,8 @@ namespace Bank
         private System.Windows.Forms.TextBox mail;
         private BorderlessGroupBox borderlessGroupBox2;
         private System.Windows.Forms.TextBox password;
-        private System.Windows.Forms.Button logIn;
-        private System.Windows.Forms.Button signIn;
+        private System.Windows.Forms.Button logInButton;
+        private System.Windows.Forms.Button signInButton;
         private System.Windows.Forms.Panel buttonsPanel;
         private System.Windows.Forms.LinkLabel forgotPassword;
     }

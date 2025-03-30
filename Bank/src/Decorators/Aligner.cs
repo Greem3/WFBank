@@ -173,12 +173,22 @@ namespace Bank
             func();
         }
 
-        public static void ItemsCenter(Control control, int startY = 0, int spacing = 0)
+        public static void ItemsCenter(Control control)
         {
-            Aligner.ItemsCenter(control, control.Controls.Cast<Control>().ToArray());
+            Aligner.ItemsCenter(control, control.Controls.Cast<Control>().ToArray(), 0, 0);
         }
 
-        public static void ItemsCenter(Control mainControl, Control[] childrenControls, int startY = 0, int spacing = 0)
+        public static void ItemsCenter(Control mainControl, int startY)
+        {
+            Aligner.ItemsCenter(mainControl, mainControl.Controls.Cast<Control>().ToArray(), startY, 0);
+        }
+
+        public static void ItemsCenter(Control mainControl, int startY, int spacing)
+        {
+            Aligner.ItemsCenter(mainControl, mainControl.Controls.Cast<Control>().ToArray(), startY, spacing);
+        }
+
+        public static void ItemsCenter(Control mainControl, Control[] childrenControls, int startY, int spacing)
         {
             Action func = () =>
             {
@@ -189,8 +199,33 @@ namespace Bank
                     int centeredX = location.x - (childControl.Width / 2);
 
                     childControl.Location = new Point(centeredX, location.y);
-                    
+
                     location.y += childControl.Height + spacing;
+                }
+            };
+
+            mainControl.Resize += (sender, e) => func();
+
+            func();
+        }
+
+        public static void ItemsLeft(Control mainControl)
+        {
+            Aligner.ItemsLeft(mainControl, 0);
+        }
+
+        public static void ItemsLeft(Control mainControl, int margin)
+        {
+            Aligner.ItemsLeft(mainControl, mainControl.Controls.Cast<Control>().ToArray(), margin);
+        }
+
+        public static void ItemsLeft(Control mainControl, Control[] childrenControls, int margin)
+        {
+            Action func = () =>
+            {
+                foreach (Control childControl in childrenControls)
+                {
+                    childControl.Location = new Point(margin, childControl.Location.Y);
                 }
             };
 
