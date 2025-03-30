@@ -19,7 +19,8 @@ namespace Bank
 
             if (Context.actualUser.Acceded)
             {
-                MessageBox.Show("Ya esta accedido");
+                Application.Run(new MainMenu());
+                return;
             }
 
             Application.Run(new LoginSesion());

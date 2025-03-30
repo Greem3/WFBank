@@ -15,7 +15,7 @@ namespace Bank
         public LoginSesion()
         {
             InitializeComponent();
-            Responsive.Center(this, mainPanel);
+            Responsive.Center(mainPanel);
 
             Aligner.ItemsCenter(
                 mainPanel,
@@ -31,8 +31,9 @@ namespace Bank
                 25
             );
 
-            Responsive.Left(buttonsPanel, logIn, 30);
-            Responsive.Right(buttonsPanel, signIn, 30);
+            Aligner.BottomCenter(borderlessGroupBox2, forgotPassword, 5);
+            Responsive.Left(logIn, 30);
+            Responsive.Right(signIn, 30);
         }
     }
 }
