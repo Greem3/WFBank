@@ -8,18 +8,22 @@ namespace Bank
 {
     static class Context
     {
-        private static readonly string ActualUserPath = "../../ProjectConfig/ActualUser.json";
+        public static Config config { get; set; } = Json.NewInstanceFile<Config>();
 
         public static ActualUser actualUser { get; set; } = Json.NewInstanceFile<ActualUser>();
 
-        public static void Update()
+        public static SectionNames sections { get; set; } = Json.NewInstanceFile<SectionNames>();
+
+        public static void Save()
         {
-            JsonFile.SaveData(ActualUserPath, actualUser);
+            JsonFile.SaveDataConfig(actualUser);
+            JsonFile.SaveDataConfig(config);
         }
 
         public static void Reload()
         {
-            Context.actualUser = Json.NewInstanceFile<ActualUser>();
+            actualUser = Json.NewInstanceFile<ActualUser>();
+            config = Json.NewInstanceFile<Config>();
         }
     }
 }

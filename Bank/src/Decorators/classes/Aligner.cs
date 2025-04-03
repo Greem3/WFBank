@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,32 @@ namespace Bank
         {
             Action func = () =>
             {
-                control.Location = new Point(control.Location.X, mainControl.Location.Y - mainControl.Size.Height - margin);
+                control.Location = new Point(control.Location.X, mainControl.Location.Y - control.Size.Height - margin);
+            };
+
+            mainControl.Resize += (sender, e) => func();
+
+            mainControl.Move += (sender, e) => func();
+
+            func();
+        }
+
+        public static void TopLeft(Control mainControl, Control control)
+        {
+            Aligner.TopLeft(mainControl, control, 0, 0);
+        }
+
+        public static void TopLeft(Control mainControl, Control control, int margin)
+        {
+            Aligner.TopLeft(mainControl, control, margin, 0);
+        }
+
+        public static void TopLeft(Control mainControl, Control control, int margin, int moreLeft)
+        {
+            Action func = () =>
+            {
+                control.Location = new Point(mainControl.Location.X - moreLeft,
+                    mainControl.Location.Y - control.Size.Height - margin);
             };
 
             mainControl.Resize += (sender, e) => func();
@@ -60,8 +86,10 @@ namespace Bank
         {
             Action func = () =>
             {
-                control.Location = new Point(control.Location.X,
-                    mainControl.Location.Y + mainControl.Size.Height + margin);
+                control.Location = new Point(
+                    mainControl.Location.X,
+                    mainControl.Location.Y + mainControl.Size.Height + margin
+                );
             };
 
             mainControl.Resize += (sender, e) => func();
@@ -164,6 +192,21 @@ namespace Bank
             {
                 control.Location = new Point(mainControl.Location.X + mainControl.Size.Width + margin,
                     mainControl.Location.Y + (mainControl.Size.Height - control.Size.Height) / 2);
+            };
+
+            mainControl.Resize += (sender, e) => func();
+
+            mainControl.Move += (sender, e) => func();
+
+            func();
+        }
+
+        public static void RightTop(Control mainControl, Control control)
+        {
+            Action func = () =>
+            {
+                control.Location = new Point(mainControl.Location.X + mainControl.Size.Width,
+                    mainControl.Location.Y - control.Size.Height);
             };
 
             mainControl.Resize += (sender, e) => func();

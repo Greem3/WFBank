@@ -10,8 +10,6 @@ namespace Bank
 {
     class JsonFile : TextFile
     {
-
-
         /// <summary>
         /// Abre un archivo JSON
         /// </summary>
@@ -49,7 +47,11 @@ namespace Bank
         {
             Type type = json.GetType();
 
-            TextFile.WriteAll(Formatter.PathFormat($"ProjectConfig/{type.Name}.json"), json.Serialize());
+            string filePath = Formatter.PathFormat($"ProjectConfig/{type.Name}.json");
+
+            Debug.WriteLine($"Path: {filePath}");
+
+            TextFile.WriteAll(filePath, json.Serialize());
         }
     }
 }

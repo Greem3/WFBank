@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,12 +36,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -51,17 +63,76 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="falseForms\sections\TransferirSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="falseForms\sections\TransferirSection.Designer.cs">
+      <DependentUpon>TransferirSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.Designer.cs">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="falseForms\sections\admin\TarjetasSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="falseForms\sections\admin\TarjetasSection.Designer.cs">
+      <DependentUpon>TarjetasSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="falseForms\sections\admin\TransferenciasSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="falseForms\sections\admin\TransferenciasSection.Designer.cs">
+      <DependentUpon>TransferenciasSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="falseForms\DataButtons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="falseForms\DataButtons.Designer.cs">
+      <DependentUpon>DataButtons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="falseForms\sections\InicioSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="falseForms\sections\InicioSection.Designer.cs">
+      <DependentUpon>InicioSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FiDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FiDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="falseForms\sections\admin\UsuariosSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="falseForms\sections\admin\UsuariosSection.Designer.cs">
+      <DependentUpon>UsuariosSection.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu.cs">
+    <Compile Include="falseForms\DisplayMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenu.Designer.cs">
-      <DependentUpon>MainMenu.cs</DependentUpon>
+    <Compile Include="falseForms\DisplayMenu.Designer.cs">
+      <DependentUpon>DisplayMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,27 +142,99 @@
     <Compile Include="SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Decorators\Aligner.cs" />
+    <Compile Include="src\CustomObjects\BorderedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="src\Decorators\attributes\ColorAttribute.cs" />
+    <Compile Include="src\Decorators\classes\Aligner.cs" />
     <Compile Include="src\Context.cs" />
     <Compile Include="src\CustomObjects\BorderlessGroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="src\Decorators\Filler.cs" />
+    <Compile Include="src\Decorators\classes\Filler.cs" />
+    <Compile Include="src\Decorators\classes\DecText.cs" />
+    <Compile Include="src\Decorators\classes\Pencil.cs" />
+    <Compile Include="src\Decorators\classes\PictureModifier.cs" />
+    <Compile Include="src\Decorators\classes\Resizer.cs" />
+    <Compile Include="src\Decorators\enums\Palette.cs" />
+    <Compile Include="src\Decorators\enums\TextSize.cs" />
     <Compile Include="src\FileEditor\JsonFile.cs" />
     <Compile Include="src\FileEditor\TextFile.cs" />
-    <Compile Include="src\Decorators\Fitsizer.cs" />
+    <Compile Include="src\Decorators\classes\Fitsizer.cs" />
     <Compile Include="src\Formatter\Formatter.cs" />
+    <Compile Include="src\Functionalizer.cs" />
     <Compile Include="src\Helper.cs" />
     <Compile Include="src\JsonFiles\abstract\Json.cs" />
     <Compile Include="src\JsonFiles\ActualUser.cs" />
+    <Compile Include="src\JsonFiles\Config.cs" />
     <Compile Include="src\JsonFiles\FormatterConfig.cs" />
+    <Compile Include="src\JsonFiles\SectionNames.cs" />
     <Compile Include="src\Loader.cs" />
-    <Compile Include="src\Decorators\Responsive.cs" />
+    <Compile Include="src\Decorators\classes\Responsive.cs" />
+    <Compile Include="src\FormFabric.cs" />
+    <Compile Include="src\SQLManagement\card.cs">
+      <DependentUpon>FiDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\SQLManagement\cardType.cs">
+      <DependentUpon>FiDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\SQLManagement\Database.cs" />
+    <Compile Include="src\SQLManagement\EncryptionKey.cs">
+      <DependentUpon>FiDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\SQLManagement\FiDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FiDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\SQLManagement\FiDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FiDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\SQLManagement\FiDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FiDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="src\SQLManagement\transference.cs">
+      <DependentUpon>FiDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="src\SQLManagement\user.cs">
+      <DependentUpon>FiDBModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="falseForms\sections\TransferirSection.resx">
+      <DependentUpon>TransferirSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="falseForms\sections\admin\TarjetasSection.resx">
+      <DependentUpon>TarjetasSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="falseForms\sections\admin\TransferenciasSection.resx">
+      <DependentUpon>TransferenciasSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="falseForms\sections\admin\UsuariosSection.resx">
+      <DependentUpon>UsuariosSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="falseForms\DataButtons.resx">
+      <DependentUpon>DataButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="falseForms\sections\InicioSection.resx">
+      <DependentUpon>InicioSection.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenu.resx">
-      <DependentUpon>MainMenu.cs</DependentUpon>
+    <EmbeddedResource Include="falseForms\DisplayMenu.resx">
+      <DependentUpon>DisplayMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -102,9 +245,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SignIn.resx">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="FiDBDataSet.xsc">
+      <DependentUpon>FiDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FiDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FiDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FiDBDataSet.xss">
+      <DependentUpon>FiDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="ProjectConfig\ActualUser.json" />
-    <None Include="ProjectConfig\config.json" />
+    <None Include="ProjectConfig\Config.json" />
+    <None Include="ProjectConfig\SectionNames.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -115,13 +273,49 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="src\Formatter\Formatter.config.json" />
+    <EntityDeploy Include="src\SQLManagement\FiDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FiDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="src\SQLManagement\FiDBModel.edmx.diagram">
+      <DependentUpon>FiDBModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="falseForms\sections\user\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\debit-card-icon64.png" />
     <Content Include="assets\Greem3.png" />
+    <Content Include="assets\home-icon64.png" />
+    <Content Include="assets\transfer-icon64.png" />
+    <Content Include="assets\transferences-icon64.png" />
+    <Content Include="assets\user-icon128.png" />
+    <Content Include="assets\user-icon64.png" />
+    <Content Include="src\SQLManagement\FiDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FiDBModel.edmx</DependentUpon>
+      <LastGenOutput>FiDBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="src\SQLManagement\FiDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FiDBModel.edmx</DependentUpon>
+      <LastGenOutput>FiDBModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
 </Project>

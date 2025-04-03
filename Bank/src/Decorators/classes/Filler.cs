@@ -16,11 +16,15 @@ namespace Bank
             Filler.Fill(control, 0);
         }
 
-        public static void Fill(Control control, int margin)
+        public static void Fill(Control control, int padding)
         {
             Action func = () =>
             {
-                control.Size = new Size(control.Parent.Size.Width - margin, control.Parent.Size.Height - margin);
+                control.Location = new Point(padding, padding);
+                control.Size = new Size(
+                    control.Parent.ClientRectangle.Width - padding*2,
+                    control.Parent.ClientRectangle.Height - padding*2
+                );
             };
 
             control.Parent.Resize += (sender, e) => func();

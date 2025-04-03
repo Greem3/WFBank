@@ -45,6 +45,18 @@ namespace System
             }
         }
 
+        public static T TryCatch<T>(Func<T> func, Func<Exception, T> errorFunc)
+        {
+            try
+            {
+                return func();
+            }
+            catch (Exception e)
+            {
+                return errorFunc(e);
+            }
+        }
+
         public static void TryCatch(Action func, Action errorFunc)
         {
             try
@@ -54,6 +66,18 @@ namespace System
             catch (Exception e)
             {
                 errorFunc();
+            }
+        }
+
+        public static void TryCatch(Action func, Action<Exception> errorFunc)
+        {
+            try
+            {
+                func();
+            }
+            catch (Exception e)
+            {
+                errorFunc(e);
             }
         }
 
@@ -71,6 +95,20 @@ namespace System
             return default(T);
         }
 
+        public static T TryCatch<T>(Action func, Func<Exception, T> errorFunc)
+        {
+            try
+            {
+                func();
+            }
+            catch (Exception e)
+            {
+                return errorFunc(e);
+            }
+
+            return default(T);
+        }
+
         public static T TryCatch<T>(Func<T> func, Action errorFunc)
         {
             try
@@ -80,6 +118,19 @@ namespace System
             catch
             {
                 errorFunc();
+                return default(T);
+            }
+        }
+
+        public static T TryCatch<T>(Func<T> func, Action<Exception> errorFunc)
+        {
+            try
+            {
+                return func();
+            }
+            catch (Exception e)
+            {
+                errorFunc(e);
                 return default(T);
             }
         }

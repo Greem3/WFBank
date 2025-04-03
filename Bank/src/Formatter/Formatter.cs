@@ -12,7 +12,7 @@ namespace System
         public static string PathFormat(string normalPath)
         {
             Dictionary<string, object> data = Json.NewVarFile<FormatterConfig>
-                    ("../../../src/PathFormatter/Formatter.config")
+                    ("../../src/Formatter/Formatter.config")
                 .PathFormatter.GetDict();
 
             StringBuilder newString = new StringBuilder(normalPath);

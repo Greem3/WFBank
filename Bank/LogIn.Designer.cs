@@ -32,12 +32,13 @@ namespace Bank
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.forgotPassword = new System.Windows.Forms.LinkLabel();
+            this.forgotPasswordLabel = new System.Windows.Forms.LinkLabel();
             this.buttonsPanel = new System.Windows.Forms.Panel();
             this.logInButton = new System.Windows.Forms.Button();
             this.signInButton = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.keepSesion = new System.Windows.Forms.CheckBox();
             this.borderlessGroupBox1 = new Bank.BorderlessGroupBox();
             this.mail = new System.Windows.Forms.TextBox();
             this.borderlessGroupBox2 = new Bank.BorderlessGroupBox();
@@ -51,7 +52,9 @@ namespace Bank
             // 
             // mainPanel
             // 
-            this.mainPanel.Controls.Add(this.forgotPassword);
+            this.mainPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.mainPanel.Controls.Add(this.keepSesion);
+            this.mainPanel.Controls.Add(this.forgotPasswordLabel);
             this.mainPanel.Controls.Add(this.buttonsPanel);
             this.mainPanel.Controls.Add(this.title);
             this.mainPanel.Controls.Add(this.borderlessGroupBox1);
@@ -62,16 +65,17 @@ namespace Bank
             this.mainPanel.Size = new System.Drawing.Size(543, 663);
             this.mainPanel.TabIndex = 0;
             // 
-            // forgotPassword
+            // forgotPasswordLabel
             // 
-            this.forgotPassword.AutoSize = true;
-            this.forgotPassword.CausesValidation = false;
-            this.forgotPassword.Location = new System.Drawing.Point(139, 464);
-            this.forgotPassword.Name = "forgotPassword";
-            this.forgotPassword.Size = new System.Drawing.Size(133, 16);
-            this.forgotPassword.TabIndex = 9;
-            this.forgotPassword.TabStop = true;
-            this.forgotPassword.Text = "Olvide mi contraseña";
+            this.forgotPasswordLabel.AutoSize = true;
+            this.forgotPasswordLabel.CausesValidation = false;
+            this.forgotPasswordLabel.Location = new System.Drawing.Point(139, 464);
+            this.forgotPasswordLabel.Name = "forgotPasswordLabel";
+            this.forgotPasswordLabel.Size = new System.Drawing.Size(133, 16);
+            this.forgotPasswordLabel.TabIndex = 9;
+            this.forgotPasswordLabel.TabStop = true;
+            this.forgotPasswordLabel.Text = "Olvide mi contraseña";
+            this.forgotPasswordLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgotPassword_LinkClicked);
             // 
             // buttonsPanel
             // 
@@ -90,6 +94,7 @@ namespace Bank
             this.logInButton.TabIndex = 6;
             this.logInButton.Text = "Iniciar Sesión";
             this.logInButton.UseVisualStyleBackColor = true;
+            this.logInButton.Click += new System.EventHandler(this.logInButton_Click);
             // 
             // signInButton
             // 
@@ -120,6 +125,16 @@ namespace Bank
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // keepSesion
+            // 
+            this.keepSesion.AutoSize = true;
+            this.keepSesion.Location = new System.Drawing.Point(162, 499);
+            this.keepSesion.Name = "keepSesion";
+            this.keepSesion.Size = new System.Drawing.Size(178, 20);
+            this.keepSesion.TabIndex = 10;
+            this.keepSesion.Text = "Mantener sesión iniciada";
+            this.keepSesion.UseVisualStyleBackColor = true;
             // 
             // borderlessGroupBox1
             // 
@@ -161,8 +176,11 @@ namespace Bank
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(768, 808);
             this.Controls.Add(this.mainPanel);
+            this.MinimumSize = new System.Drawing.Size(786, 855);
             this.Name = "LogIn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar sesión";
+            this.Load += new System.EventHandler(this.LogIn_Load);
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.buttonsPanel.ResumeLayout(false);
@@ -187,7 +205,8 @@ namespace Bank
         private System.Windows.Forms.Button logInButton;
         private System.Windows.Forms.Button signInButton;
         private System.Windows.Forms.Panel buttonsPanel;
-        private System.Windows.Forms.LinkLabel forgotPassword;
+        private System.Windows.Forms.LinkLabel forgotPasswordLabel;
+        private System.Windows.Forms.CheckBox keepSesion;
     }
 }
 

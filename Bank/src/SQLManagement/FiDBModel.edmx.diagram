@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="403f45deb48c4ea7b2f7ed44b924cc26" Name="Diagram1">
+        <EntityTypeShape EntityType="FiDBModel.card" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FiDBModel.cardType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FiDBModel.EncryptionKey" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FiDBModel.transference" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FiDBModel.user" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <AssociationConnector Association="FiDBModel.FK__cards__typeId__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="FiDBModel.FK__cards__userId__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="FiDBModel.FK__transfere__actor__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="FiDBModel.FK__transfere__toUse__10566F31" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

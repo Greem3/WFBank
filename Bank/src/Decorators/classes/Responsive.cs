@@ -15,11 +15,19 @@ namespace Bank
             Responsive.Center(control, 0, 0);
         }
 
-        public static void Center(Control control, int marginX = 0, int marginY = 0)
+        public static void Center(Control control, int margin)
+        {
+            Responsive.Center(control, 0, 0);
+        }
+
+        public static void Center(Control control, int marginX, int marginY)
         {
             Action func = () =>
             {
-                control.Location = new Point(control.Parent.Width / 2 - control.Width / 2 + marginX, control.Parent.Height / 2 - control.Height / 2 + marginY);
+                control.Location = new Point(
+                    control.Parent.ClientRectangle.Width / 2 - control.ClientRectangle.Width / 2 + marginX,
+                    control.Parent.ClientRectangle.Height / 2 - control.ClientRectangle.Height / 2 + marginY
+                );
             };
 
             control.Parent.Resize += (sender, e) => func();
@@ -83,6 +91,11 @@ namespace Bank
             Responsive.LeftTop(control, 0, 0);
         }
 
+        public static void LeftTop(Control control, int margin)
+        {
+            Responsive.LeftTop(control, margin, margin);
+        }
+
         public static void LeftTop(Control control, int marginX, int marginY)
         {
             Action func = () =>
@@ -114,12 +127,19 @@ namespace Bank
 
         public static void LeftCenter(Control control)
         {
-
+            Responsive.LeftCenter(control, 0);
         }
 
         public static void LeftCenter(Control control, int margin)
         {
+            Action func = () =>
+            {
+                control.Location = new Point(margin, control.Parent.Height / 2 - control.Height / 2);
+            };
 
+            control.Parent.Resize += (sender, e) => func();
+
+            func();
         }
 
         public static void Right(Control control)

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
+using System.Data;
+using System.Data.Entity;
 using System.Diagnostics.SymbolStore;
 using System.Linq;
 using System.Reflection;
@@ -113,13 +115,33 @@ namespace Bank
             return value.GetValue(this);
         }
 
+        public T GetValue<T>(string key)
+        {
+            return (T)this.GetDict()[key];
+        }
+
         public void SetValue(string key, object newValue)
         {
             PropertyInfo property = this._GetProperty(key);
 
-            Type propertyType = property.GetType();
-
             property.SetValue(this, newValue);
+        }
+
+        public void Set<T>(T obj) where T : class
+        {
+            Type objType = obj.GetType();
+
+            foreach (PropertyInfo property in objType.GetProperties())
+            {
+                PropertyInfo thisProperty = this._GetProperty(property.Name);
+
+                if (thisProperty == null)
+                    continue;
+
+                object value = property.GetValue(obj);
+
+                thisProperty.SetValue(this, value);
+            }
         }
 
         private PropertyInfo _GetProperty(string propertyName)
@@ -134,7 +156,7 @@ namespace Bank
 
             PropertyInfo[] properties = type.GetProperties(BindingFlags.Public);
 
-            return properties.Where(m => m.Name == propertyName).ToArray()[0];
+            return properties.Where(m => m.Name == propertyName).ToArray().FirstOrDefault();
         }
 
         public Dictionary<string, object> GetDict()
@@ -170,6 +192,26 @@ namespace Bank
             }
 
             return dict;
+        }
+
+        public void Save() 
+        {
+            JsonFile.SaveDataConfig(this);
+        }
+
+        public static void Save<T>(T jsonClass) where T : Json
+        {
+            JsonFile.SaveDataConfig(jsonClass);
+        }
+
+        public void SaveIn(string filePath)
+        {
+            JsonFile.SaveData(filePath, this);
+        }
+
+        public static void SaveIn<T>(string filePath, T jsonClass) where T : Json
+        {
+            JsonFile.SaveData(filePath, jsonClass);
         }
 
         public string Serialize()

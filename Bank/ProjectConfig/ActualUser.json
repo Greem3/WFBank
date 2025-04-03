@@ -1,6 +1,11 @@
-﻿{
-  "Acceded": false,
+{
+  "Acceded": true,
   "Info": {
-
+    "id": 2,
+    "name": "testUser",
+    "email": "test@gmail.com",
+    "password": "12345678",
+    "profilePicture": "C:\\Users\\ianpi\\source\\repos\\Bank\\Bank\\assets\\user-icon64.png",
+    "isAdmin": true
   }
 }

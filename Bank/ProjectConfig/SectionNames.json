@@ -1,0 +1,13 @@
+﻿{
+  "Admin": {
+    "Inicio": "home-icon64.png",
+    "Transferir": "transfer-icon64.png",
+    "Usuarios": "user-section-icon64.png",
+    "Tarjetas": "debit-card-icon64.png",
+    "Transferencias": "transferences-icon64.png"
+  },
+  "User": {
+    "Inicio": "home-icon64.png",
+    "Transferir": "transfer-icon64.png"
+  }
+}

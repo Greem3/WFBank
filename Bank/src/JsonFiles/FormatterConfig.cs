@@ -4,9 +4,9 @@ namespace Bank
 {
     public class FormatterConfig : Json
     {
-        public Config PathFormatter { get; set; }
+        public ConfigJson PathFormatter { get; set; }
 
-        public class Config : Json
+        public class ConfigJson : Json
         {
             public int beforeFiles { get; set; }
             public bool afterFiles { get; set; }
