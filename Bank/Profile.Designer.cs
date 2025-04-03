@@ -34,7 +34,7 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.buttonsPanel = new System.Windows.Forms.Panel();
-            this.returnButton = new System.Windows.Forms.Button();
+            this.closeSesionButton = new System.Windows.Forms.Button();
             this.borderlessGroupBox1 = new Bank.BorderlessGroupBox();
             this.userName = new System.Windows.Forms.TextBox();
             this.borderlessGroupBox2 = new Bank.BorderlessGroupBox();
@@ -56,9 +56,10 @@
             this.mainPanel.Controls.Add(this.borderlessGroupBox2);
             this.mainPanel.Controls.Add(this.borderlessGroupBox3);
             this.mainPanel.Controls.Add(this.buttonsPanel);
+            this.mainPanel.Controls.Add(this.closeSesionButton);
             this.mainPanel.Location = new System.Drawing.Point(51, 53);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(583, 566);
+            this.mainPanel.Size = new System.Drawing.Size(583, 618);
             this.mainPanel.TabIndex = 0;
             // 
             // userImg
@@ -82,6 +83,7 @@
             this.saveButton.TabIndex = 3;
             this.saveButton.Text = "Guardar";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // cancelButton
             // 
@@ -91,24 +93,26 @@
             this.cancelButton.TabIndex = 4;
             this.cancelButton.Text = "Deshacer";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // buttonsPanel
             // 
             this.buttonsPanel.Controls.Add(this.saveButton);
             this.buttonsPanel.Controls.Add(this.cancelButton);
-            this.buttonsPanel.Location = new System.Drawing.Point(117, 428);
+            this.buttonsPanel.Location = new System.Drawing.Point(87, 410);
             this.buttonsPanel.Name = "buttonsPanel";
-            this.buttonsPanel.Size = new System.Drawing.Size(394, 86);
+            this.buttonsPanel.Size = new System.Drawing.Size(394, 60);
             this.buttonsPanel.TabIndex = 5;
             // 
-            // returnButton
+            // closeSesionButton
             // 
-            this.returnButton.Location = new System.Drawing.Point(-1, 0);
-            this.returnButton.Name = "returnButton";
-            this.returnButton.Size = new System.Drawing.Size(96, 47);
-            this.returnButton.TabIndex = 1;
-            this.returnButton.Text = "Volver";
-            this.returnButton.UseVisualStyleBackColor = true;
+            this.closeSesionButton.Location = new System.Drawing.Point(219, 488);
+            this.closeSesionButton.Name = "closeSesionButton";
+            this.closeSesionButton.Size = new System.Drawing.Size(115, 50);
+            this.closeSesionButton.TabIndex = 6;
+            this.closeSesionButton.Text = "Cerrar sesión";
+            this.closeSesionButton.UseVisualStyleBackColor = true;
+            this.closeSesionButton.Click += new System.EventHandler(this.closeSesionButton_Click);
             // 
             // borderlessGroupBox1
             // 
@@ -165,10 +169,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 653);
-            this.Controls.Add(this.returnButton);
+            this.ClientSize = new System.Drawing.Size(697, 789);
             this.Controls.Add(this.mainPanel);
-            this.MinimumSize = new System.Drawing.Size(715, 700);
+            this.MinimumSize = new System.Drawing.Size(715, 836);
             this.Name = "Profile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profile";
@@ -200,6 +203,6 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Panel buttonsPanel;
-        private System.Windows.Forms.Button returnButton;
+        private System.Windows.Forms.Button closeSesionButton;
     }
 }

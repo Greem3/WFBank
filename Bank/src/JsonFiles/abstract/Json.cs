@@ -133,9 +133,12 @@ namespace Bank
 
             foreach (PropertyInfo property in objType.GetProperties())
             {
+                if (property.Name == "Count")
+                    continue;
+
                 PropertyInfo thisProperty = this._GetProperty(property.Name);
 
-                if (thisProperty == null)
+                if (thisProperty is null)
                     continue;
 
                 object value = property.GetValue(obj);

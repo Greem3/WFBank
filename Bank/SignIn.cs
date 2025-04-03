@@ -44,21 +44,14 @@ namespace Bank
 
         private void signInButton_Click(object sender, EventArgs e)
         {
-            Regex realMail = new Regex(@"\w+\@\w+\.\w+");
-
-            if (!realMail.IsMatch(mail.Text))
-            {
-                MessageBox.Show("Este correo no es valido!", "Correo invalido", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+            if (!Conditioner.IsName(userName.Text))
                 return;
-            }
 
-            if (password.Text.Length < 8)
-            {
-                MessageBox.Show("La contraseña debe tener al menos 8 caracteres", "Contraseña corta",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (!Conditioner.IsMail(mail.Text))
                 return;
-            }
+
+            if (!Conditioner.IsPassword(password.Text))
+                return;
 
             user newUser = new user()
             {

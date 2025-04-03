@@ -142,6 +142,7 @@
     <Compile Include="SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\Conditioner.cs" />
     <Compile Include="src\CustomObjects\BorderedButton.cs">
       <SubType>Component</SubType>
     </Compile>

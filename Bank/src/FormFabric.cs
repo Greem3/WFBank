@@ -95,6 +95,17 @@ namespace Bank
             FormFabric.OpenDialogAndClose(new T());
         }
 
+        public static void OpenAndHide(Form newForm)
+        {
+            Form.ActiveForm.Hide();
+            newForm.Show();
+        }
+
+        public static void OpenAndHide<T>() where T : Form, new()
+        {
+            FormFabric.OpenAndHide(new T());
+        }
+
         public static void Open(Form newForm)
         {
             newForm.Show();

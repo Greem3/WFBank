@@ -100,7 +100,7 @@ namespace Bank
                 {
                     Form form = sender as Form;
 
-                    FormFabric.OpenAndClose<Profile>();
+                    FormFabric.OpenAndHide<Profile>();
                 }
             );
         }

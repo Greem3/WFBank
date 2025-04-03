@@ -20,6 +20,7 @@ namespace Bank
         {
             InitializeComponent();
 
+            Resizer.Square(pictureBox1, 128);
             DecText.SetSizeInto(mainPanel, TextSize.NormalText);
             DecText.SetSize(title, TextSize.H1);
             Aligner.BottomCenter(borderlessGroupBox2, forgotPasswordLabel, 15);
@@ -58,7 +59,7 @@ namespace Bank
 
         private void signInButton_Click(object sender, EventArgs e)
         {
-            FormFabric.OpenAndClose(new SignIn());
+            FormFabric.OpenAndClose<SignIn>();
         }
 
         private void logInButton_Click(object sender, EventArgs e)
@@ -97,12 +98,12 @@ namespace Bank
             
             Context.Save();
 
-            FormFabric.OpenAndClose(new Home());
+            FormFabric.OpenAndClose<Home>();
         }
 
         private void forgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormFabric.OpenDialog(new ForgotPassword());
+            FormFabric.OpenDialog<ForgotPassword>();
         }
 
         private void LogIn_Load(object sender, EventArgs e)
