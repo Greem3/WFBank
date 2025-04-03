@@ -41,15 +41,19 @@ namespace Bank
         {
             //Todo: logica para enviar el correo mediante la api
 
-            //WebRequest request = WebRequest.Create(
-            //    "https://api.testmail.app/api/json&apikey=5e063c6c-d28f-428d-aaa8-0cd42b255d76&namespace=qznu9"
-            //    );
+            MessageBox.Show("No tienes conexión a internet", "No Internet", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            //request.Method = "GET";
+            return;
 
-            //var response = request.GetResponse();
+            WebRequest request = WebRequest.Create(
+                "https://api.testmail.app/api/json&apikey=5e063c6c-d28f-428d-aaa8-0cd42b255d76&namespace=qznu9"
+                );
 
-            //Debug.WriteLine(response);
+            request.Method = "GET";
+
+            var response = request.GetResponse();
+
+            Debug.WriteLine(response);
         }
 
         private void cancel_Click(object sender, EventArgs e)

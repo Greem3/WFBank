@@ -24,12 +24,15 @@ namespace Bank
                 (control) => !control.Name.EndsWith("Title"));
 
             Responsive.LeftTop(cardInfo, 20);
-            Aligner.RightCenter(cardInfo, cardInfoCantity, 20);
+            Aligner.RightCenter(cardInfo, cardInfoCantity, 100);
+
+            Aligner.BottomCenter(cardInfo, transCantityInfo, 100);
+            Aligner.RightCenter(transCantityInfo, transDateInfo, 100);
 
             Responsive.Center(noCardLabel);
 
             Pencil.Paint(this, Palette.Primary);
-            Pencil.PaintItems(this, Palette.CardBackground, (control) => control is Panel);
+            Pencil.PaintItems(panel1, Palette.CardBackground, (control) => control is Panel);
 
             Pencil.PaintAllItemsText(this, Palette.ButtonText);
             Pencil.PaintText(noCardLabel, Palette.Text);
@@ -57,19 +60,42 @@ namespace Bank
                 cardMoney.Text = userCard.moneyCantity.ToString();
                 cardMoneyTitle.Text = "Dinero en la tarjeta";
 
+                var trans = from t in db.transferences orderby t.transDate descending 
+                    where t.actorId == Context.actualUser.Info.id
+                    select t;
+
+                transCantityTitle.Text = "Cantidad de transacciones realizadas";
+
+                transDateTitle.Text = "Fecha de la ultima transaccion realizada";
+
+                if (trans.Count() > 0)
+                {
+                    transCantity.Text = trans.Count().ToString();
+                    transDate.Text = trans.FirstOrDefault().transDate.ToString();
+                }
+
+                transCantityInfo.Visible = true;
+                transDateInfo.Visible = true;
                 cardInfo.Visible = true;
                 cardInfoCantity.Visible = true;
 
-                Responsive.MiddleX(cardNumber);
-                Aligner.BottomCenter(cardNumber, cardNumberTitle, 20);
+                Aligner.ItemsCenter(cardInfo, 30, 30);
+                //Responsive.MiddleX(cardNumber);
+                //Aligner.BottomCenter(cardNumber, cardNumberTitle, 20);
 
-                Responsive.MiddleX(cardMoney);
-                Aligner.BottomCenter(cardMoney, cardMoneyTitle, 20);
+                Aligner.ItemsCenter(cardInfoCantity, 30, 30);
+                //Responsive.MiddleX(cardMoney);
+                //Aligner.BottomCenter(cardMoney, cardMoneyTitle, 20);
 
-                Fitsizer.AdjustObject(cardInfoCantity, 15);
-                Fitsizer.AdjustObject(cardInfo, 15);
-                return;
+                Aligner.ItemsCenter(transCantityInfo, 30, 30);
+
+                Aligner.ItemsCenter(transDateInfo, 30, 30);
+
+                //Fitsizer.AdjustInside(this, 25);
             }
+
+            Fitsizer.AdjustObject(panel1, 30);
+            Responsive.Center(panel1);
         }
     }
 }

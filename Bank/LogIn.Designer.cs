@@ -32,22 +32,22 @@ namespace Bank
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.keepSesion = new System.Windows.Forms.CheckBox();
             this.forgotPasswordLabel = new System.Windows.Forms.LinkLabel();
             this.buttonsPanel = new System.Windows.Forms.Panel();
             this.logInButton = new System.Windows.Forms.Button();
             this.signInButton = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.keepSesion = new System.Windows.Forms.CheckBox();
             this.borderlessGroupBox1 = new Bank.BorderlessGroupBox();
             this.mail = new System.Windows.Forms.TextBox();
             this.borderlessGroupBox2 = new Bank.BorderlessGroupBox();
             this.password = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mainPanel.SuspendLayout();
             this.buttonsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.borderlessGroupBox1.SuspendLayout();
             this.borderlessGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -64,6 +64,16 @@ namespace Bank
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(543, 663);
             this.mainPanel.TabIndex = 0;
+            // 
+            // keepSesion
+            // 
+            this.keepSesion.AutoSize = true;
+            this.keepSesion.Location = new System.Drawing.Point(162, 499);
+            this.keepSesion.Name = "keepSesion";
+            this.keepSesion.Size = new System.Drawing.Size(178, 20);
+            this.keepSesion.TabIndex = 10;
+            this.keepSesion.Text = "Mantener sesión iniciada";
+            this.keepSesion.UseVisualStyleBackColor = true;
             // 
             // forgotPasswordLabel
             // 
@@ -116,26 +126,6 @@ namespace Bank
             this.title.TabIndex = 5;
             this.title.Text = "Iniciar sesión";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(177, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(177, 150);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // keepSesion
-            // 
-            this.keepSesion.AutoSize = true;
-            this.keepSesion.Location = new System.Drawing.Point(162, 499);
-            this.keepSesion.Name = "keepSesion";
-            this.keepSesion.Size = new System.Drawing.Size(178, 20);
-            this.keepSesion.TabIndex = 10;
-            this.keepSesion.Text = "Mantener sesión iniciada";
-            this.keepSesion.UseVisualStyleBackColor = true;
-            // 
             // borderlessGroupBox1
             // 
             this.borderlessGroupBox1.Controls.Add(this.mail);
@@ -167,8 +157,19 @@ namespace Bank
             // 
             this.password.Location = new System.Drawing.Point(-1, 21);
             this.password.Name = "password";
+            this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(263, 22);
             this.password.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(177, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(177, 150);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // LogIn
             // 
@@ -184,11 +185,11 @@ namespace Bank
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.buttonsPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.borderlessGroupBox1.ResumeLayout(false);
             this.borderlessGroupBox1.PerformLayout();
             this.borderlessGroupBox2.ResumeLayout(false);
             this.borderlessGroupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

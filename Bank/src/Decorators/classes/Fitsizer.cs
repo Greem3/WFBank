@@ -85,33 +85,43 @@ namespace Bank
 
         public static void AdjustObject(Control container, int paddingX, int paddingY)
         {
-            paddingX *= 2;
-            paddingY *= 2;
-
-            if (container.Controls.Count == 0)
+            Action func = () =>
             {
-                container.Size = new Size(paddingX*2, paddingY*2);
-                return;
+                paddingX *= 2;
+                paddingY *= 2;
+
+                if (container.Controls.Count == 0)
+                {
+                    container.Size = new Size(paddingX * 2, paddingY * 2);
+                    return;
+                }
+
+                Control[] childrenControls = container.Controls.Cast<Control>().ToArray();
+
+                int minLeft = childrenControls.Min(c => c.Left);
+                int minTop = childrenControls.Min(c => c.Top);
+
+                container.Location = new Point(container.Location.X + minLeft, container.Location.Y + minTop);
+
+                foreach (Control control in childrenControls)
+                {
+                    control.Location = new Point(control.Location.X - minLeft, control.Location.Y - minTop);
+                }
+
+                (int X, int Y) newSize = (
+                    childrenControls.OrderByDescending(c => c.Right).First().Right,
+                    childrenControls.OrderByDescending(c => c.Bottom).First().Bottom
+                );
+
+                container.Size = new Size(newSize.X + paddingX, newSize.Y + paddingY);
+            };
+
+            foreach (Control control in container.Controls)
+            {
+                control.Resize += (sender, e) => func();
             }
 
-            Control[] childrenControls = container.Controls.Cast<Control>().ToArray();
-
-            int minLeft = childrenControls.Min(c => c.Left);
-            int minTop = childrenControls.Min(c => c.Top);
-
-            container.Location = new Point(container.Location.X + minLeft, container.Location.Y + minTop);
-
-            foreach (Control control in childrenControls)
-            {
-                control.Location = new Point(control.Location.X - minLeft, control.Location.Y - minTop);
-            }
-
-            (int X, int Y) newSize = (
-                childrenControls.OrderByDescending(c => c.Right).First().Right,
-                childrenControls.OrderByDescending(c => c.Bottom).First().Bottom
-            );
-
-            container.Size = new Size(newSize.X + paddingX, newSize.Y + paddingY);
+            func();
         }
 
         public static void AdjustInside(Control container)

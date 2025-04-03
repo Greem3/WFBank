@@ -64,6 +64,12 @@ namespace Bank
 
         private void logInButton_Click(object sender, EventArgs e)
         {
+            if (!Conditioner.IsMail(mail.Text))
+                return;
+
+            if (!Conditioner.IsPassword(password.Text))
+                return;
+
             user existUser;
 
             using (FiDBEntities db = new FiDBEntities())

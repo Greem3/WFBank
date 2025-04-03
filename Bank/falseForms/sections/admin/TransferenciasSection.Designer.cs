@@ -31,12 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.fiDBDataSet = new Bank.FiDBDataSet();
-            this.transferencesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.transferencesTableAdapter = new Bank.FiDBDataSetTableAdapters.transferencesTableAdapter();
+            this.transferencesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actorIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toUserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toUserIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fiDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transferencesBindingSource)).BeginInit();
@@ -49,8 +50,9 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.actorIdDataGridViewTextBoxColumn,
-            this.toUserDataGridViewTextBoxColumn,
-            this.cantityDataGridViewTextBoxColumn});
+            this.cantityDataGridViewTextBoxColumn,
+            this.toUserIdDataGridViewTextBoxColumn,
+            this.transDateDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.transferencesBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(90, 75);
             this.dataGridView1.Name = "dataGridView1";
@@ -64,14 +66,14 @@
             this.fiDBDataSet.DataSetName = "FiDBDataSet";
             this.fiDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // transferencesTableAdapter
+            // 
+            this.transferencesTableAdapter.ClearBeforeFill = true;
+            // 
             // transferencesBindingSource
             // 
             this.transferencesBindingSource.DataMember = "transferences";
             this.transferencesBindingSource.DataSource = this.fiDBDataSet;
-            // 
-            // transferencesTableAdapter
-            // 
-            this.transferencesTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -90,14 +92,6 @@
             this.actorIdDataGridViewTextBoxColumn.Name = "actorIdDataGridViewTextBoxColumn";
             this.actorIdDataGridViewTextBoxColumn.Width = 125;
             // 
-            // toUserDataGridViewTextBoxColumn
-            // 
-            this.toUserDataGridViewTextBoxColumn.DataPropertyName = "toUser";
-            this.toUserDataGridViewTextBoxColumn.HeaderText = "toUser";
-            this.toUserDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.toUserDataGridViewTextBoxColumn.Name = "toUserDataGridViewTextBoxColumn";
-            this.toUserDataGridViewTextBoxColumn.Width = 125;
-            // 
             // cantityDataGridViewTextBoxColumn
             // 
             this.cantityDataGridViewTextBoxColumn.DataPropertyName = "cantity";
@@ -105,6 +99,22 @@
             this.cantityDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.cantityDataGridViewTextBoxColumn.Name = "cantityDataGridViewTextBoxColumn";
             this.cantityDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // toUserIdDataGridViewTextBoxColumn
+            // 
+            this.toUserIdDataGridViewTextBoxColumn.DataPropertyName = "toUserId";
+            this.toUserIdDataGridViewTextBoxColumn.HeaderText = "toUserId";
+            this.toUserIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.toUserIdDataGridViewTextBoxColumn.Name = "toUserIdDataGridViewTextBoxColumn";
+            this.toUserIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // transDateDataGridViewTextBoxColumn
+            // 
+            this.transDateDataGridViewTextBoxColumn.DataPropertyName = "transDate";
+            this.transDateDataGridViewTextBoxColumn.HeaderText = "transDate";
+            this.transDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.transDateDataGridViewTextBoxColumn.Name = "transDateDataGridViewTextBoxColumn";
+            this.transDateDataGridViewTextBoxColumn.Width = 125;
             // 
             // TransferenciasSection
             // 
@@ -127,11 +137,13 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private FiDBDataSet fiDBDataSet;
-        private System.Windows.Forms.BindingSource transferencesBindingSource;
         private FiDBDataSetTableAdapters.transferencesTableAdapter transferencesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn toUserDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actorIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn toUserDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn toUserIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource transferencesBindingSource;
     }
 }

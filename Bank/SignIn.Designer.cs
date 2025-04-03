@@ -134,6 +134,7 @@
             // 
             this.password.Location = new System.Drawing.Point(-1, 21);
             this.password.Name = "password";
+            this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(263, 22);
             this.password.TabIndex = 0;
             // 
@@ -185,6 +186,7 @@
             // 
             this.keyCode.Location = new System.Drawing.Point(-1, 21);
             this.keyCode.Name = "keyCode";
+            this.keyCode.PasswordChar = '*';
             this.keyCode.Size = new System.Drawing.Size(263, 22);
             this.keyCode.TabIndex = 0;
             // 

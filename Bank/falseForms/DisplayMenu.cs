@@ -21,7 +21,7 @@ namespace Bank
             userName.Text = Context.actualUser.Info.name;
             userImg.Image = Image.FromFile(Context.actualUser.Info.profilePicture);
 
-            Aligner.Right(companyImg, userInfo);
+            Aligner.Bottom(companyImg, userInfo);
             
             Responsive.Left(userImg);
 
@@ -36,6 +36,8 @@ namespace Bank
 
             Responsive.Left(sections, 10);
             Aligner.ItemsLeft(sections, 15);
+
+            //Aligner.TopCenter(sections, userInfo);
 
             Pencil.Paint(this, Palette.Background);
             Pencil.PaintAllItemsText(this, Palette.Text);

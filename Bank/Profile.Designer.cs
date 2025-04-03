@@ -31,22 +31,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profile));
             this.mainPanel = new System.Windows.Forms.Panel();
             this.userImg = new System.Windows.Forms.PictureBox();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.buttonsPanel = new System.Windows.Forms.Panel();
-            this.closeSesionButton = new System.Windows.Forms.Button();
             this.borderlessGroupBox1 = new Bank.BorderlessGroupBox();
             this.userName = new System.Windows.Forms.TextBox();
             this.borderlessGroupBox2 = new Bank.BorderlessGroupBox();
             this.userMail = new System.Windows.Forms.TextBox();
             this.borderlessGroupBox3 = new Bank.BorderlessGroupBox();
             this.password = new System.Windows.Forms.TextBox();
+            this.buttonsPanel = new System.Windows.Forms.Panel();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.closeSesionButton = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userImg)).BeginInit();
-            this.buttonsPanel.SuspendLayout();
             this.borderlessGroupBox1.SuspendLayout();
             this.borderlessGroupBox2.SuspendLayout();
             this.borderlessGroupBox3.SuspendLayout();
+            this.buttonsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -74,45 +74,6 @@
             this.userImg.TabIndex = 0;
             this.userImg.TabStop = false;
             this.userImg.Click += new System.EventHandler(this.userImg_Click);
-            // 
-            // saveButton
-            // 
-            this.saveButton.Location = new System.Drawing.Point(44, 12);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(150, 38);
-            this.saveButton.TabIndex = 3;
-            this.saveButton.Text = "Guardar";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Location = new System.Drawing.Point(217, 12);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(150, 38);
-            this.cancelButton.TabIndex = 4;
-            this.cancelButton.Text = "Deshacer";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
-            // buttonsPanel
-            // 
-            this.buttonsPanel.Controls.Add(this.saveButton);
-            this.buttonsPanel.Controls.Add(this.cancelButton);
-            this.buttonsPanel.Location = new System.Drawing.Point(87, 410);
-            this.buttonsPanel.Name = "buttonsPanel";
-            this.buttonsPanel.Size = new System.Drawing.Size(394, 60);
-            this.buttonsPanel.TabIndex = 5;
-            // 
-            // closeSesionButton
-            // 
-            this.closeSesionButton.Location = new System.Drawing.Point(219, 488);
-            this.closeSesionButton.Name = "closeSesionButton";
-            this.closeSesionButton.Size = new System.Drawing.Size(115, 50);
-            this.closeSesionButton.TabIndex = 6;
-            this.closeSesionButton.Text = "Cerrar sesión";
-            this.closeSesionButton.UseVisualStyleBackColor = true;
-            this.closeSesionButton.Click += new System.EventHandler(this.closeSesionButton_Click);
             // 
             // borderlessGroupBox1
             // 
@@ -162,8 +123,48 @@
             // 
             this.password.Location = new System.Drawing.Point(-2, 21);
             this.password.Name = "password";
+            this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(242, 22);
             this.password.TabIndex = 0;
+            // 
+            // buttonsPanel
+            // 
+            this.buttonsPanel.Controls.Add(this.saveButton);
+            this.buttonsPanel.Controls.Add(this.cancelButton);
+            this.buttonsPanel.Location = new System.Drawing.Point(87, 410);
+            this.buttonsPanel.Name = "buttonsPanel";
+            this.buttonsPanel.Size = new System.Drawing.Size(394, 60);
+            this.buttonsPanel.TabIndex = 5;
+            // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(44, 12);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(150, 38);
+            this.saveButton.TabIndex = 3;
+            this.saveButton.Text = "Guardar";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.Location = new System.Drawing.Point(217, 12);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(150, 38);
+            this.cancelButton.TabIndex = 4;
+            this.cancelButton.Text = "Deshacer";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
+            // closeSesionButton
+            // 
+            this.closeSesionButton.Location = new System.Drawing.Point(219, 488);
+            this.closeSesionButton.Name = "closeSesionButton";
+            this.closeSesionButton.Size = new System.Drawing.Size(115, 50);
+            this.closeSesionButton.TabIndex = 6;
+            this.closeSesionButton.Text = "Cerrar sesión";
+            this.closeSesionButton.UseVisualStyleBackColor = true;
+            this.closeSesionButton.Click += new System.EventHandler(this.closeSesionButton_Click);
             // 
             // Profile
             // 
@@ -179,13 +180,13 @@
             this.Load += new System.EventHandler(this.Profile_Load);
             this.mainPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.userImg)).EndInit();
-            this.buttonsPanel.ResumeLayout(false);
             this.borderlessGroupBox1.ResumeLayout(false);
             this.borderlessGroupBox1.PerformLayout();
             this.borderlessGroupBox2.ResumeLayout(false);
             this.borderlessGroupBox2.PerformLayout();
             this.borderlessGroupBox3.ResumeLayout(false);
             this.borderlessGroupBox3.PerformLayout();
+            this.buttonsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
