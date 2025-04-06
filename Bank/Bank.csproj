@@ -175,9 +175,6 @@
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Conditioner.cs" />
-    <Compile Include="src\CustomObjects\BorderedButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="src\Decorators\attributes\ColorAttribute.cs" />
     <Compile Include="src\Decorators\classes\Aligner.cs" />
     <Compile Include="src\Context.cs" />
@@ -211,7 +208,6 @@
     <Compile Include="src\SQLManagement\cardType.cs">
       <DependentUpon>FiDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="src\SQLManagement\Database.cs" />
     <Compile Include="src\SQLManagement\EncryptionKey.cs">
       <DependentUpon>FiDBModel.tt</DependentUpon>
     </Compile>

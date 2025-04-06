@@ -21,6 +21,11 @@ namespace Bank
 
             DbModelBuilder builder = new DbModelBuilder();
 
+            TestmailApiClient mailApi = new TestmailApiClient();
+
+            mailApi.SendTestEmail("test");
+            Debug.WriteLine(mailApi.GetEmails("test").Emails.ToString());
+
             builder.Entity<user>().HasIndex(u => u.email).IsUnique();
 
             if (Context.actualUser.Acceded)

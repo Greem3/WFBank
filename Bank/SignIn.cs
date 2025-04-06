@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -58,24 +59,17 @@ namespace Bank
                 name = userName.Text,
                 email = mail.Text,
                 password = password.Text,
-                isAdmin = false
+                isAdmin = false,
+                profilePicture = "C:\\Users\\ianpi\\OneDrive\\Imágenes\\equipo_flow_front.jpg"
             };
 
             using (FiDBEntities db = new FiDBEntities())
             {
-                bool alreadyEmail = db.users.Any(u => u.email == mail.Text);
-
-                if (alreadyEmail)
-                {
-                    MessageBox.Show("El correo ya está en uso", "Correo usado", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    return;
-                }
 
                 card cardTarget = 
                     (from c in db.cards 
                     where c.cardNumber.ToString() == keyCard.Text &&
-                          c.userId != null 
+                          c.userId == null 
                     select c).FirstOrDefault();
 
                 if (cardTarget is null)
@@ -88,13 +82,31 @@ namespace Bank
                     );
                     return;
                 }
-                    
-                db.users.Add(newUser);
-                cardTarget.userId = newUser.id;
 
                 Helper.TryCatch(() =>
                 {
-                    db.SaveChanges();
+                    SqlConnection connection =
+                        new SqlConnection(
+                            "Server=localhost;Database=FiDB;Trusted_Connection=True;TrustServerCertificate=True;");
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(
+                               $"insert into users (name, email, password) values ('{newUser.name}', '{newUser.email}', '{newUser.password}')",
+                               connection
+                           )
+                          )
+                    {
+                        command.ExecuteNonQuery();
+                    }
+
+                    user infoUser = (from u in db.users where u.email == newUser.email select u).FirstOrDefault();
+
+                    using (SqlCommand command = new SqlCommand($"update cards set userId = {infoUser.id} where cardNumber = {int.Parse(keyCard.Text.Trim())}", connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+
+                    connection.Close();
                 },
                 (ex) =>
                 {

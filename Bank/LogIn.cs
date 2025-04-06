@@ -43,7 +43,7 @@ namespace Bank
             Aligner.BottomCenter(forgotPasswordLabel, keepSesion, 15);
             Aligner.BottomCenter(keepSesion, buttonsPanel, 15);
 
-            Fitsizer.AdjustObject(mainPanel);
+            Fitsizer.AdjustObject(mainPanel, 0, 5);
             Responsive.Center(mainPanel);
 
             Responsive.Left(logInButton, 30);

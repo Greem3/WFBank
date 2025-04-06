@@ -147,7 +147,7 @@ namespace Bank
                     transDate = DateTime.Now
                 };
 
-                db.transferences.Add(trans);
+                //db.transferences.Add(trans);
 
                 SqlConnection connection =
                     new SqlConnection(

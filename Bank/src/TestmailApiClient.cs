@@ -40,38 +40,39 @@ namespace Bank
             return JsonConvert.DeserializeObject<EmailResponse>(response.Content);
         }
         
-        public void SendTestEmail(string toEmail, string tag = null)
+        public void SendTestEmail(string tag)
         {
             // Configura el cliente SMTP (usa tu proveedor de email)
             var smtpClient = new SmtpClient("smtp-mail.outlook.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("ianpichardo575@gmail.com", "SuperEbello2016"),
-                EnableSsl = true
+                Credentials = new NetworkCredential("ianpichardo575@gmail.com", "ydwdwjvwioeaemiq"),
+                EnableSsl = true,
+                UseDefaultCredentials = false,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Timeout = 10000
             };
 
             // Construye la dirección para Testmail
-            string testmailAddress = toEmail;
-            if (!string.IsNullOrEmpty(tag))
+            string testmailAddress = $"{_namespace}.{tag}@inbox.testmail.app";
+
+            using (MailMessage mailMessage = new MailMessage(
+                       from: new MailAddress("FakeMail@fake.com", "Bank FI"),
+                       to: new MailAddress(testmailAddress)
+                   )
+                   {
+                       Subject = "Prueba de correo",
+                       Body = "Este es un correo de prueba enviado desde Testmail API.",
+                       Priority = MailPriority.Normal,
+                   }
+                   )
             {
-                testmailAddress = toEmail.Replace("@", $"+{tag}@");
+                mailMessage.Headers.Add("X-Mailer", "Microsoft Outlook");
+
+                smtpClient.Send(mailMessage);
             }
-
-            // Crea el mensaje
-            var mailMessage = new MailMessage
-            {
-                From = new MailAddress("ian.pichardo@hotmail.com"),
-                Subject = "Prueba de correo",
-                Body = "<h1>Este es un correo de prueba</h1>",
-                IsBodyHtml = true,
-            };
-
-            mailMessage.To.Add(testmailAddress);
-
-            // Envía el correo
-            smtpClient.Send(mailMessage);
         }
-}
+    }
 
     public class EmailResponse
     {
@@ -83,22 +84,22 @@ namespace Bank
     {
         [JsonProperty("id")]
         public string Id { get; set; }
-
+    
         [JsonProperty("from")]
         public string From { get; set; }
-
+    
         [JsonProperty("to")]
         public string To { get; set; }
-
+    
         [JsonProperty("subject")]
         public string Subject { get; set; }
-
+    
         [JsonProperty("text")]
         public string Text { get; set; }
-
+    
         [JsonProperty("html")]
         public string Html { get; set; }
-
+    
         [JsonProperty("createdAt")]
         public DateTime CreatedAt { get; set; }
     }

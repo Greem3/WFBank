@@ -34,6 +34,8 @@ namespace Bank
         {
             // TODO: This line of code loads data into the 'fiDBDataSet.users' table. You can move, or remove it, as needed.
             this.usersTableAdapter.Fill(this.fiDBDataSet.users);
+            // TODO: This line of code loads data into the 'fiDBDataSet.users' table. You can move, or remove it, as needed.
+            this.usersTableAdapter.Fill(this.fiDBDataSet.users);
         }
 
         private bool HasChanges()

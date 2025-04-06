@@ -1,11 +1,11 @@
 {
   "Acceded": false,
   "Info": {
-    "id": 2,
-    "name": "Dylan",
-    "email": "dylanesalbino@gmail.com",
-    "password": "pdidy123",
-    "profilePicture": "C:\\Users\\ianpi\\OneDrive\\Imágenes\\Greem3.png",
-    "isAdmin": true
+    "id": 0,
+    "name": "test3",
+    "email": "test3@profesores.com",
+    "password": "1234567890",
+    "profilePicture": "C:\\Users\\ianpi\\OneDrive\\Imágenes\\equipo_flow_front.jpg",
+    "isAdmin": false
   }
 }

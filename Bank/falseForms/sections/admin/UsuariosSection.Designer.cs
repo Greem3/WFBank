@@ -30,17 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.fiDBDataSet = new Bank.FiDBDataSet();
+            this.fiDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.usersTableAdapter = new Bank.FiDBDataSetTableAdapters.usersTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isAdminDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fiDBDataSet = new Bank.FiDBDataSet();
-            this.usersTableAdapter = new Bank.FiDBDataSetTableAdapters.usersTableAdapter();
+            this.profilePictureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fiDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fiDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -52,7 +55,8 @@
             this.nameDataGridViewTextBoxColumn,
             this.emailDataGridViewTextBoxColumn,
             this.passwordDataGridViewTextBoxColumn,
-            this.isAdminDataGridViewCheckBoxColumn});
+            this.isAdminDataGridViewCheckBoxColumn,
+            this.profilePictureDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.usersBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(41, 69);
             this.dataGridView1.Name = "dataGridView1";
@@ -60,6 +64,25 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1183, 524);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // fiDBDataSet
+            // 
+            this.fiDBDataSet.DataSetName = "FiDBDataSet";
+            this.fiDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // fiDBDataSetBindingSource
+            // 
+            this.fiDBDataSetBindingSource.DataSource = this.fiDBDataSet;
+            this.fiDBDataSetBindingSource.Position = 0;
+            // 
+            // usersBindingSource
+            // 
+            this.usersBindingSource.DataMember = "users";
+            this.usersBindingSource.DataSource = this.fiDBDataSet;
+            // 
+            // usersTableAdapter
+            // 
+            this.usersTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -102,19 +125,13 @@
             this.isAdminDataGridViewCheckBoxColumn.Name = "isAdminDataGridViewCheckBoxColumn";
             this.isAdminDataGridViewCheckBoxColumn.Width = 125;
             // 
-            // usersBindingSource
+            // profilePictureDataGridViewTextBoxColumn
             // 
-            this.usersBindingSource.DataMember = "users";
-            this.usersBindingSource.DataSource = this.fiDBDataSet;
-            // 
-            // fiDBDataSet
-            // 
-            this.fiDBDataSet.DataSetName = "FiDBDataSet";
-            this.fiDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // usersTableAdapter
-            // 
-            this.usersTableAdapter.ClearBeforeFill = true;
+            this.profilePictureDataGridViewTextBoxColumn.DataPropertyName = "profilePicture";
+            this.profilePictureDataGridViewTextBoxColumn.HeaderText = "profilePicture";
+            this.profilePictureDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.profilePictureDataGridViewTextBoxColumn.Name = "profilePictureDataGridViewTextBoxColumn";
+            this.profilePictureDataGridViewTextBoxColumn.Width = 125;
             // 
             // UsuariosSection
             // 
@@ -127,8 +144,9 @@
             this.Text = "UsersSection";
             this.Load += new System.EventHandler(this.UsersSection_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fiDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fiDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -136,6 +154,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource fiDBDataSetBindingSource;
         private FiDBDataSet fiDBDataSet;
         private System.Windows.Forms.BindingSource usersBindingSource;
         private FiDBDataSetTableAdapters.usersTableAdapter usersTableAdapter;
@@ -144,5 +163,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isAdminDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn profilePictureDataGridViewTextBoxColumn;
     }
 }
